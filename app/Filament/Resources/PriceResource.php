@@ -6,6 +6,7 @@ use App\Filament\Resources\PriceResource\Pages;
 use App\Filament\Resources\PriceResource\RelationManagers;
 use App\Models\Pricing;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,7 +24,23 @@ class PriceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Fieldset::make('Details')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+
+                        Forms\Components\TextInput::make('price')
+                            ->label('Price Amount')
+                            ->required()
+                            ->numeric()
+                            ->prefix('IDR'),
+
+                        Forms\Components\TextInput::make('duration')
+                            ->required()
+                            ->numeric()
+                            ->prefix('Months'),
+                    ])
             ]);
     }
 
@@ -31,7 +48,13 @@ class PriceResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('price'),
+
+                Tables\Columns\TextColumn::make('duration')
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
