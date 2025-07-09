@@ -25,6 +25,8 @@ class CourseMentorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Courses';
+    
     public static function form(Form $form): Form
     {
         return $form
