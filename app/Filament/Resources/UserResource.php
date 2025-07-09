@@ -50,6 +50,7 @@ class UserResource extends Resource
                         'Developer' => 'Developer',
                         'Designer' => 'Designer',
                         'Project Manager' => 'Project Manager',
+                        'Marketing' => 'Marketing',
                     ]),
                 
                 Select::make('role')
@@ -67,7 +68,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('photo'),
+                ImageColumn::make('photo')
+                    ->label(''),
 
                 TextColumn::make('name')
                     ->searchable()

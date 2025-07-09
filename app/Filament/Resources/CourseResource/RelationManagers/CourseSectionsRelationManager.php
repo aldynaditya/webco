@@ -35,6 +35,11 @@ class CourseSectionsRelationManager extends RelationManager
             ->recordTitleAttribute('name')
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
+
+                Tables\Columns\TextColumn::make('position')
+                    ->label('Content Position')
+                    ->sortable(),
+                    
             ])
             ->filters([
                 //

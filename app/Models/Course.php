@@ -37,6 +37,11 @@ class Course extends Model
         return $this->hasMany(CourseSection::class);
     }
 
+    public function courseTestimonials(): HasMany
+    {
+        return $this->hasMany(CourseTestimonial::class);
+    }
+
     public function courseStudents(): HasMany
     {
         return $this->hasMany(CourseStudent::class, 'course_id');
