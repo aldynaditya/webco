@@ -24,6 +24,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected static ?string $navigationGroup = 'Administration';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -69,7 +71,8 @@ class UserResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('photo')
-                    ->label(''),
+                    ->label('')
+                    ->circular(),
 
                 TextColumn::make('name')
                     ->searchable()
